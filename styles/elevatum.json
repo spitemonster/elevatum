@@ -1,0 +1,170 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/theme.json",
+    "version": 2,
+    "title": "Elevatum",
+    "settings": {
+        "color": {
+            "palette": [
+                {
+                    "color": "#000000",
+                    "name": "Black",
+                    "slug": "black"
+                },
+                {
+                    "color": "#ffffff",
+                    "name": "White",
+                    "slug": "white"
+                },
+                {
+                    "color": "rgb(0, 115, 230)",
+                    "name": "Blue",
+                    "slug": "blue"
+                },
+                {
+                    "color": "rgb(10, 37, 64)",
+                    "name": "Dark Blue",
+                    "slug": "dark-blue"
+                },
+                {
+                    "color": "rgb(66, 84, 102)",
+                    "name": "Slate Blue",
+                    "slug": "slate-blue"
+                },
+                {
+                    "color": "rgb(245, 245, 245)",
+                    "name": "Light Gray",
+                    "slug": "light-gray"
+                },
+                {
+                    "color": "rgb(128, 128, 128)",
+                    "name": "Medium Gray",
+                    "slug": "medium-gray"
+                },
+                {
+                    "color": "rgb(34, 34, 34)",
+                    "name": "Dark Gray",
+                    "slug": "dark-gray"
+                }
+            ]
+        },
+        "typography": {
+            "fontFamilies": [
+                {
+                    "fontFace": [
+                        {
+                            "fontFamily": "Instrument Sans",
+                            "fontStyle": "normal",
+                            "fontWeight": "400 700",
+                            "src": [
+                                "file:./assets/fonts/instrument-sans/InstrumentSans-VariableFont_wdth,wght.woff2"
+                            ]
+                        },
+                        {
+                            "fontFamily": "Instrument Sans",
+                            "fontStyle": "italic",
+                            "fontWeight": "400 700",
+                            "src": [
+                                "file:./assets/fonts/instrument-sans/InstrumentSans-Italic-VariableFont_wdth,wght.woff2"
+                            ]
+                        }
+                    ],
+                    "fontFamily": "\"Instrument Sans\", sans-serif",
+                    "name": "Instrument Sans",
+                    "slug": "body"
+                },
+                {
+                    "fontFace": [
+                        {
+                            "fontFamily": "Jost",
+                            "fontStyle": "normal",
+                            "fontWeight": "100 900",
+                            "src": [
+                                "file:./assets/fonts/jost/Jost-VariableFont_wght.woff2"
+                            ]
+                        },
+                        {
+                            "fontFamily": "Jost",
+                            "fontStyle": "italic",
+                            "fontWeight": "100 900",
+                            "src": [
+                                "file:./assets/fonts/jost/Jost-Italic-VariableFont_wght.woff2"
+                            ]
+                        }
+                    ],
+                    "fontFamily": "\"Jost\", sans-serif",
+                    "name": "Jost",
+                    "slug": "heading"
+                },
+                {
+                    "fontFamily": "-apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif",
+                    "name": "System Sans-serif",
+                    "slug": "system-sans-serif"
+                },
+                {
+                    "fontFamily": "Iowan Old Style, Apple Garamond, Baskerville, Times New Roman, Droid Serif, Times, Source Serif Pro, serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
+                    "name": "System Serif",
+                    "slug": "system-serif"
+                }
+            ]
+        }
+    },
+    "styles": {
+        "blocks": {
+            "core/button": {
+                "variations": {
+                    "outline": {
+                        "spacing": {
+                            "padding": {
+                                "bottom": "calc(0.9rem - 2px)",
+                                "left": "calc(2rem - 2px)",
+                                "right": "calc(2rem - 2px)",
+                                "top": "calc(0.9rem - 2px)"
+                            }
+                        },
+                        "border": {
+                            "width": "2px"
+                        }
+                    }
+                }
+            },
+            "core/image": {
+                "filter": {
+                    "duotone": "var(--wp--preset--duotone--duotone-2)"
+                }
+            },
+            "core/pullquote": {
+                "typography": {
+                    "fontSize": "var(--wp--preset--font-size--large)",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": "1.2"
+                }
+            },
+            "core/quote": {
+                "typography": {
+                    "fontFamily": "var(--wp--preset--font-family--heading)",
+                    "fontSize": "var(--wp--preset--font-size--large)",
+                    "fontStyle": "normal"
+                },
+                "variations": {
+                    "plain": {
+                        "typography": {
+                            "fontStyle": "normal",
+                            "fontWeight": "400"
+                        }
+                    }
+                }
+            },
+            "core/site-title": {
+                "typography": {
+                    "fontWeight": "400"
+                }
+            },
+            "core/navigation": {
+                "typography": {
+                    "fontWeight": "400"
+                }
+            }
+        }
+    }
+}
