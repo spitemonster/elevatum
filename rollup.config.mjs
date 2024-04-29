@@ -1,5 +1,6 @@
 import postcss from 'rollup-plugin-postcss'
 import postcssNesting from 'postcss-nesting'
+import { folderInput } from 'rollup-plugin-folder-input'
 
 export default [
     {
@@ -22,28 +23,18 @@ export default [
             postcssNesting(),
         ],
     },
-    // {
-    //     input: {
-    //         edit: './src/blocks/copyright-date-block/src/edit.js',
-    //         index: './src/blocks/copyright-date-block/src/index.js',
-    //         view: './src/blocks/copyright-date-block/src/view.js',
-    //     },
-    //     output: {
-    //         chunkFileNames: '[name].[ext]',
-    //         entryFileNames: '[name].js',
-    //         dir: './src/blocks/copyright-date-block/build',
-    //     },
-    //     plugins: [
-    //         babel({
-    //             babelHelpers: 'bundled',
-    //             exclude: 'node_modules/**',
-    //             presets: ['@babel/preset-env', '@babel/preset-react'],
-    //         }),
-    //         json(),
-    //         postcss({
-    //             extract: true,
-    //             minimize: true,
-    //         }),
-    //     ],
-    // },
+    {
+        input: './src/blocks/**/*.css',
+        output: {
+            dir: './assets/blocks/css/',
+        },
+        plugins: [
+            folderInput(),
+            postcss({
+                extract: true,
+                minimize: true,
+            }),
+            postcssNesting(),
+        ],
+    },
 ]

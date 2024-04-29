@@ -16,9 +16,33 @@ array_map(
         'post-types',
         'taxonomies',
         'user-roles',
-        'utilities',
+        'utilities'
     ]
 );
+
+foreach (glob(get_stylesheet_directory() . '/src/blocks/*/') as $block_dir) {
+	$block_name = basename($block_dir);
+	$block_dist_path = get_stylesheet_directory() . '/assets/blocks/';
+	// $block_dist_uri = trailingslashit(
+	//     get_template_directory_uri() . '/src/blocks/' . $block_name . '/build/'
+	// );
+
+	if (file_exists($block_dir . $block_name . '.php')) {
+		include $block_dir . $block_name . '.php';
+	}
+}
+
+use Carbon_Fields\Container;
+use Carbon_Fields\Field;
+
+add_action( 'carbon_fields_register_fields', 'crb_attach_theme_options' );
+function crb_attach_theme_options() {
+    Container::make( 'theme_options', __( 'Theme Options' ) )
+        ->add_fields( array(
+            Field::make( 'text', 'crb_text', 'Text Field' ),
+        ) );
+}
+
 
 // color palette
 // add_theme_support('editor-color-palette', [
