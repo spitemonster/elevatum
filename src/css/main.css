@@ -1,4 +1,123 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+    font-style: italic;
+    background-repeat: no-repeat;
+    background-size: cover;
+    shape-margin: 1rem;
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+:root {
+    --font-size-base: 20px;
+    font-size: var(--font-size-base);
+    line-height: 1.5;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    line-height: 1.25;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+ol,
+li {
+    & + p,
+    & + h1,
+    & + h2,
+    & + h3,
+    & + h4,
+    & + h5,
+    & + h6,
+    & + ul,
+    & + ol,
+    & + li {
+        margin-top: 1rem;
+    }
+}
+
 :where(body .is-layout-constrained) > * {
     margin-block-start: unset;
     margin-block-end: unset;
+}
+
+.wp-block-group.is-style-breakout {
+    max-width: none;
+    & > * {
+        max-width: var(--wp--style--global--content-size);
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+}
+
+.wp-block-image.is-style-grayscale {
+    filter: grayscale(100%);
+}
+
+.wp-block-quote {
+    border: none;
+    padding: 0;
+    margin: 0;
+    font-weight: 500;
+
+    cite {
+        color: var(--wp--preset--color--medium-gray);
+        font-weight: 400;
+        font-size: 1rem;
+    }
+}
+
+.testimonial {
+    background: red !important;
 }

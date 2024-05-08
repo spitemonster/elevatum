@@ -1,13 +1,13 @@
 {
 	"apiVersion": 2,
-	"name": "test-block",
-	"title": "Test Block",
-	"description": "This is a test block.",
+	"name": "testimonial",
+	"title": "Testimonial",
+	"description": "Display a styled testimonial.",
 	"category": "",
 	"icon": "",
 	"acf": {
 			"mode": "preview",
-			"renderTemplate": "test-block.php"
+			"renderTemplate": "testimonial.php"
 	},
 	"supports": {
 		"color" : {
@@ -18,6 +18,6 @@
 		"background" : true,
 		"anchor": true
 	},
-	"script": "test-block",
-	"style": "test-block"
+	"script": "testimonial",
+	"style": "testimonial"
 }

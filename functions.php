@@ -20,39 +20,6 @@ array_map(
     ]
 );
 
-foreach (glob(get_stylesheet_directory() . '/src/blocks/*/') as $block_dir) {
-	$block_name = basename($block_dir);
-	$block_dist_path = get_stylesheet_directory() . '/assets/blocks/';
-	// $block_dist_uri = trailingslashit(
-	//     get_template_directory_uri() . '/src/blocks/' . $block_name . '/build/'
-	// );
-
-	if (file_exists($block_dir . $block_name . '.php')) {
-		include $block_dir . $block_name . '.php';
-	}
-}
-
-use Carbon_Fields\Container;
-use Carbon_Fields\Field;
-
-add_action( 'carbon_fields_register_fields', 'crb_attach_theme_options' );
-function crb_attach_theme_options() {
-    Container::make( 'theme_options', __( 'Theme Options' ) )
-        ->add_fields( array(
-            Field::make( 'text', 'crb_text', 'Text Field' ),
-        ) );
-}
-
-
-// color palette
-// add_theme_support('editor-color-palette', [
-//     [
-//         'name' => 'White',
-//         'slug' => 'white',
-//         'color' => '#ffffff',
-//     ],
-// ]);
-
 add_action('after_setup_theme', function () {
     add_post_type_support('page', 'excerpt');
     add_theme_support('title-tag');
@@ -67,8 +34,9 @@ add_action('after_setup_theme', function () {
 
     remove_theme_support('core-block-patterns');
 
-    add_theme_support('editor-styles');
-    add_editor_style(asset_path('styles/editor.css'));
+	add_theme_support('editor-styles');
+	add_theme_support( 'wp-block-styles' );
+	add_editor_style('assets/css/main.css');
 });
 
 add_action('widgets_init', function () {
@@ -83,6 +51,7 @@ add_action('widgets_init', function () {
 });
 
 
+// die(var_dump(asset_path('css/main.css')));
 
 add_action(
     'wp_enqueue_scripts',
@@ -96,7 +65,7 @@ add_action(
         );
         wp_enqueue_script(
             'main-js',
-            asset_path('scripts/main.js'),
+            asset_path('/scripts/main.js'),
             [],
             THEME_VERSION,
             true
@@ -105,9 +74,24 @@ add_action(
     15
 );
 
+register_block_style(
+	'core/group',
+	array(
+		'name'  => 'breakout',
+		'label' => __( 'Breakout', 'textdomain' ),
+	)
+);
+
+register_block_style(
+	'core/image',
+	array(
+		'name'  => 'grayscale',
+		'label' => __( 'Grayscale', 'textdomain' ),
+	)
+);
 
 
 register_nav_menus([
-    'primary_navigation' => __('Primary Navigation', 'elevatum'),
-    'footer_navigation' => __('Footer Navigation', 'elevatum'),
+    'primary_navigation' => __('Primary Navigation', 'textdomain'),
+    'footer_navigation' => __('Footer Navigation', 'textdomain'),
 ]);
