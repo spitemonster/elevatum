@@ -5,7 +5,8 @@
     "scripts": {
         "watch": "rollup -c ./rollup.config.mjs -w",
         "build": "rollup -c ./rollup.config.mjs",
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "deploy": "rsync -azvh --progress --exclude '.git' --exclude 'node_modules' . elevatum:/home/master/applications/elevatum_staging/public_html/wp-content/themes/elevatum --delete-after"
     },
     "author": "",
     "license": "ISC",
