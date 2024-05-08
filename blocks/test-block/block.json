@@ -1,0 +1,23 @@
+{
+	"apiVersion": 2,
+	"name": "test-block",
+	"title": "Test Block",
+	"description": "This is a test block.",
+	"category": "",
+	"icon": "",
+	"acf": {
+			"mode": "preview",
+			"renderTemplate": "test-block.php"
+	},
+	"supports": {
+		"color" : {
+			"text" : true,
+			"background" : true,
+			"gradients" : true
+		},
+		"background" : true,
+		"anchor": true
+	},
+	"script": "test-block",
+	"style": "test-block"
+}

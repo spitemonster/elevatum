@@ -3,3 +3,5 @@ assets
 .env
 composer.phar
 /vendor/
+.DS_Store
+.vscode

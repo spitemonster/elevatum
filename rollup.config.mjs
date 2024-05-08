@@ -1,8 +1,17 @@
 import postcss from 'rollup-plugin-postcss'
 import postcssNesting from 'postcss-nesting'
 import { folderInput } from 'rollup-plugin-folder-input'
+import fs from 'fs'
 
-export default [
+function getDirectories(path) {
+    return fs.readdirSync(path).filter(function (file) {
+        return fs.statSync(path + '/' + file).isDirectory()
+    })
+}
+
+const blocks = getDirectories('./blocks/')
+
+let config = [
     {
         input: './src/js/main.js',
         output: {
@@ -23,18 +32,33 @@ export default [
             postcssNesting(),
         ],
     },
-    {
-        input: './src/blocks/**/*.css',
-        output: {
-            dir: './assets/blocks/css/',
-        },
-        plugins: [
-            folderInput(),
-            postcss({
-                extract: true,
-                minimize: true,
-            }),
-            postcssNesting(),
-        ],
-    },
 ]
+
+blocks.forEach((b) => {
+    const bConfig = [
+        {
+            input: `blocks/${b}/${b}.css`,
+            output: {
+                file: `./assets/blocks/${b}/${b}.min.css`,
+            },
+            plugins: [
+                postcss({
+                    extract: true,
+                    minimize: true,
+                }),
+                postcssNesting(),
+            ],
+        },
+        {
+            input: `blocks/${b}/${b}.js`,
+            output: {
+                file: `./assets/blocks/${b}/${b}.min.js`,
+            },
+        },
+    ]
+
+    config = [...config, ...bConfig]
+})
+
+console.log(config)
+export default config
