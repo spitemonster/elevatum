@@ -1,27 +1,34 @@
 <?php
 
 /**
- * Custom Post Types
+ * register custom post types
  */
 
-function register_custom_post_types()
-{
-    // posts label override
-    $get_post_type = get_post_type_object('post');
-    $labels = $get_post_type->labels;
-    $labels->name = 'Library';
-    $labels->singular_name = 'Post';
-    $labels->add_new = 'Add Post';
-    $labels->add_new_item = 'Add Post';
-    $labels->edit_item = 'Edit Post';
-    $labels->new_item = 'Post';
-    $labels->view_item = 'View Library';
-    $labels->search_items = 'Search Library';
-    $labels->not_found = 'No posts found.';
-    $labels->not_found_in_trash = 'No posts found in Trash';
-    $labels->all_items = 'All Posts';
-    $labels->menu_name = 'Library';
-    $labels->name_admin_bar = 'Library';
-}
 
-add_action('init', 'register_custom_post_types');
+add_action('init', function()
+{
+
+	register_post_type("case-study", [
+		"labels" => [
+		  "name" => __("Case Studies"),
+		  "singular_name" => __("Case Study"),
+		  "add_new" => __("Add Case Study"),
+		  "add_new_item" => __("Add New Case Study"),
+		  "edit" => __("Edit"),
+		  "edit_item" => __("Edit Case Study"),
+		  "view" => __("View"),
+		  "view_item" => __("View Case Study"),
+		  "search_items" => __("Search Case Studies"),
+		  "all_items" => __("Case Studies"),
+		  "not_found" => __("No Case Studies found."),
+		  "not_found_in_trash" => __("No Case Studies found in Trash."),
+		],
+		"has_archive" => true,
+		"supports" => ["title", "thumbnail", "excerpt", "editor"],
+		"public" => true,
+		"menu_icon" => "dashicons-media-document",
+		"menu_position" => 6,
+		"show_in_rest" => true,
+		"rewrite" => ["slug" => "case-studies", "with_front" => false],
+	  ]);
+});
