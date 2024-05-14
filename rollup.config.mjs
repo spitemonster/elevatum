@@ -11,6 +11,14 @@ function getDirectories(path) {
 
 const blocks = getDirectories('./blocks/')
 
+function fileExists(name) {
+    try {
+        return fs.statSync(name).isFile()
+    } catch {
+        return false
+    }
+}
+
 let config = [
     {
         input: './src/js/main.js',
@@ -35,8 +43,12 @@ let config = [
 ]
 
 blocks.forEach((b) => {
-    const bConfig = [
-        {
+    const cssInput = `blocks/${b}/${b}.css`
+    const jsInput = `blocks/${b}/${b}.js`
+    const bConfig = []
+
+    if (fileExists(cssInput)) {
+        bConfig.push({
             input: `blocks/${b}/${b}.css`,
             output: {
                 file: `./assets/blocks/${b}/${b}.min.css`,
@@ -48,17 +60,19 @@ blocks.forEach((b) => {
                 }),
                 postcssNesting(),
             ],
-        },
-        {
+        })
+    }
+
+    if (fileExists(jsInput)) {
+        bConfig.push({
             input: `blocks/${b}/${b}.js`,
             output: {
                 file: `./assets/blocks/${b}/${b}.min.js`,
             },
-        },
-    ]
+        })
+    }
 
     config = [...config, ...bConfig]
 })
 
-console.log(config)
 export default config
