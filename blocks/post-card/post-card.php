@@ -15,11 +15,10 @@
 	$class = implode(" ", array_filter([
 		$class_name
 	]));
-	
+
 	// construct an attributes array from class, id and block styles
 	$atts = array_filter(["class" => $class, "id" => $id, "style" => get_block_styles($block)]);
 	$post = get_field("post");
-	$tags = get_the_terms($post->id, "tag");
 
 	// Add a condition here for the block to render; this is just a placeholder
 	if(!empty($post)):
@@ -27,8 +26,7 @@
 
 	<?php get_template_part("templates/parts/post-card", null, [
 		"atts" => $atts,
-		"post" => $post,
-		"tags" => $tags
+		"post" => $post
 	]); ?>
 
 <?php elseif ($is_preview): ?>

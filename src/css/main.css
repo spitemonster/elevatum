@@ -149,12 +149,15 @@ header {
         display: flex;
         gap: 0.5rem;
         margin-block: 1rem;
+        flex-wrap: wrap;
+        font-size: var(--wp--preset--font-size--small);
 
         li {
             margin: 0;
             background: var(--wp--preset--color--light-medium-gray);
             padding: 0.25rem;
             border-radius: 0.25rem;
+            white-space: nowrap;
         }
     }
 

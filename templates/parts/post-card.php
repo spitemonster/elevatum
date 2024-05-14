@@ -2,12 +2,11 @@
 extract(
 	wp_parse_args($args, [
 	  "post" => null,
-	  "tags" => null,
 	  "atts" => null
 	])
   );
 
-  if (empty(!$atts)) {
+  if (empty($atts)) {
 	$atts = ["class" => "post-card"];
   } else {
 	$atts["class"] = $atts["class"] . " post-card";
@@ -18,6 +17,8 @@ extract(
 }, array_keys($atts), $atts));
 
   if (!empty($post)) :
+
+	$tags = get_the_terms($post->id, "tag");
 ?>
 <a <?= $att_string; ?> href="<?= get_permalink( $post ); ?>">
 	<figure>

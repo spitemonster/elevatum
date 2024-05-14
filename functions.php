@@ -50,9 +50,6 @@ add_action('widgets_init', function () {
     ]);
 });
 
-
-// die(var_dump(asset_path('css/main.css')));
-
 add_action(
     'wp_enqueue_scripts',
     function () {
