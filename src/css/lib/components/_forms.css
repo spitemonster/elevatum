@@ -1,0 +1,26 @@
+.gform-body {
+    input[type='text'],
+    input[type='number'],
+    input[type='phone'],
+    input[type='email'],
+    textarea {
+        border: none;
+        border-radius: 0;
+        border-bottom: 2px solid var(--wp--preset--color--dark-blue);
+        box-shadow: none;
+    }
+
+    .gform_page_fields {
+        .gfield_label {
+            font-size: var(--wp--preset--font-size--h-5);
+        }
+    }
+}
+
+@supports (field-sizing) {
+    .gform-body {
+        textarea {
+            field-sizing: auto;
+        }
+    }
+}

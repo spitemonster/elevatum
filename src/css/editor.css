@@ -1,0 +1,33 @@
+.editor-styles-wrapper {
+    .block-editor-block-list__layout.is-root-container
+        > :where(
+            :not(.alignleft):not(.alignright):not(.alignfull)
+        ).is-style-breakout {
+        max-width: none;
+    }
+
+    .block-library-block__reusable-block-container {
+        max-width: none !important;
+
+        & > .wp-block-query {
+            max-width: var(--wp--style--global--content-size) !important;
+            margin-inline: auto;
+            padding-inline: var(--global-inline-padding);
+        }
+    }
+
+    /* fix media text image with image fill style not showing image */
+    .wp-block-media-text {
+        position: static !important;
+
+        figure.wp-block-media-text__media {
+            position: static !important;
+        }
+    }
+
+    /* fix for blocks inheriting a spacer out of nowhere */
+    .wp-block {
+        margin-top: 0;
+        margin-block-start: 0;
+    }
+}
