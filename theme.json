@@ -13,47 +13,47 @@
             "spacingSizes": [
                 {
                     "name": "3X-Small",
-                    "size": ".25rem",
+                    "size": ".25em",
                     "slug": "xxxsmall"
                 },
                 {
                     "name": "2X-Small",
-                    "size": ".5rem",
+                    "size": ".5em",
                     "slug": "xxsmall"
                 },
                 {
                     "name": "X-Small",
-                    "size": ".75rem",
+                    "size": ".75em",
                     "slug": "xsmall"
                 },
                 {
                     "name": "Small",
-                    "size": "1rem",
+                    "size": "1em",
                     "slug": "small"
                 },
                 {
                     "name": "Medium",
-                    "size": "1.5rem",
+                    "size": "1.5em",
                     "slug": "medium"
                 },
                 {
                     "name": "Large",
-                    "size": "2rem",
+                    "size": "2em",
                     "slug": "large"
                 },
                 {
                     "name": "X-Large",
-                    "size": "3rem",
+                    "size": "3em",
                     "slug": "xlarge"
                 },
                 {
                     "name": "2X-Large",
-                    "size": "4rem",
+                    "size": "4em",
                     "slug": "xxlarge"
                 },
                 {
                     "name": "3X-Large",
-                    "size": "6rem",
+                    "size": "6em",
                     "slug": "xxxlarge"
                 }
             ]
@@ -211,47 +211,47 @@
                 {
                     "name": "Base",
                     "slug": "base",
-                    "size": "1rem"
+                    "size": "1em"
                 },
                 {
                     "name": "X-Small",
                     "slug": "xsmall",
-                    "size": ".694rem"
+                    "size": ".694em"
                 },
                 {
                     "name": "Small",
                     "slug": "small",
-                    "size": ".833rem"
+                    "size": ".833em"
                 },
                 {
                     "name": "H6",
                     "slug": "h6",
-                    "size": "1.2rem"
+                    "size": "1.2em"
                 },
                 {
                     "name": "H5",
                     "slug": "h5",
-                    "size": "1.44rem"
+                    "size": "1.44em"
                 },
                 {
                     "name": "H4",
                     "slug": "h4",
-                    "size": "1.728rem"
+                    "size": "1.728em"
                 },
                 {
                     "name": "H3",
                     "slug": "h3",
-                    "size": "2.074rem"
+                    "size": "2.074em"
                 },
                 {
                     "name": "H2",
                     "slug": "h2",
-                    "size": "2.488rem"
+                    "size": "2.488em"
                 },
                 {
                     "name": "H1",
                     "slug": "h1",
-                    "size": "2.986rem"
+                    "size": "2.986em"
                 }
             ],
             "lineHeight": true,
@@ -392,7 +392,9 @@
             },
             "core/columns": {
                 "spacing": {
-                    "blockGap": true
+                    "blockGap": true,
+                    "margin": true,
+                    "padding": true
                 }
             },
             "core/image": {
@@ -417,7 +419,8 @@
             "core/media-text": {
                 "spacing": {
                     "margin": true,
-                    "padding": true
+                    "padding": true,
+                    "blockGap": true
                 }
             },
             "core/cover": {
