@@ -9,3 +9,9 @@
 @import 'wp/_post-featured-image';
 @import 'wp/_post-template';
 @import 'wp/_quote';
+@import 'wp/_spacer';
+
+:root {
+    /* var cleanup because wp for some reason is converting font sizes to hard coded pixel values */
+    --wp--preset--font-size--small: 0.833em;
+}
